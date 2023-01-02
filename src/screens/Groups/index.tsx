@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FlatList } from 'react-native';
+import { Button } from '../../components/Button';
 import { GroupCard } from '../../components/GroupCard';
 import { Header } from '../../components/Header';
 import { HightLight } from '../../components/HightLight';
@@ -26,6 +27,8 @@ export function Groups() {
         contentContainerStyle={groups.length === 0 &&{ flex: 1}}
         ListEmptyComponent={() => <ListEmpty message="Não foram encontradas turmas cadastradas."/>}
       />
+
+      <Button title='Criar nova turma' />
     </style.Container>
   );
 }
