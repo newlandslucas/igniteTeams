@@ -3,11 +3,12 @@ import { FlatList } from 'react-native';
 import { GroupCard } from '../../components/GroupCard';
 import { Header } from '../../components/Header';
 import { HightLight } from '../../components/HightLight';
+import { ListEmpty } from '../../components/ListEmpty';
 
 import * as style from './styles';
 
 export function Groups() {
-  const [groups, setGroups] = useState<string[]>(['Galera de SP', 'Galera do trabalho']);
+  const [groups, setGroups] = useState<string[]>([]);
 
   return (
     <style.Container>
@@ -22,6 +23,8 @@ export function Groups() {
         data={groups}
         keyExtractor={item => item}
         renderItem={({ item }) => <GroupCard title={item}/>}
+        contentContainerStyle={groups.length === 0 &&{ flex: 1}}
+        ListEmptyComponent={() => <ListEmpty message="Não foram encontradas turmas cadastradas."/>}
       />
     </style.Container>
   );
